@@ -5,7 +5,11 @@ Este proyecto cuenta con varios servicios. Además de tener el típico frontend 
 El backend es una api hecha con [Express](https://expressjs.com/) **4.17.1**. También cuenta con una base de datos MongoDB **3.6.14**. Para correr la api, primero levantar la BBDD haciendo `docker-compose up`. Posteriormente instalar los módulos de node necesarios, `npm install`, y levantar la api haciendo `npm run dev`. Navegar a [http://localhost:9999/](http://localhost:9999/) para verificar que ande (devolverá un json con mensaje de error).
 
 #### Keycloack
-`docker run --rm --name keycloak -p 8080:8080 -e "KEYCLOAK_USER=admin" -e "KEYCLOAK_PASSWORD=admin" jboss/keycloak:4.4.0.Final`
+Para levantar una instancia de prueba de Keycloak pueden hacer:
+
+`docker run --name keycloak -p 8080:8080 -e "KEYCLOAK_USER=admin" -e "KEYCLOAK_PASSWORD=admin" jboss/keycloak:4.4.0.Final`
+
+Y navegar a [http://localhost:8080](http://localhost:8080), e ingresar a la consola de administración usando las credenciales `admin`/`admin`. Una vez adentro deben crear un *client* de prueba, con el nombre "prueba".
 
 #### Frontend
 El frontend es una página hecha con [React](https://reactjs.org/) **16.8.6**, con el framework [Next](https://nextjs.org/) **6.1.2**. Para correrla, primero instalar las dependencias, `npm install`, y después levantar la página haciendo `npm run dev`. Si todo sale bien, debería hostearse en [http://localhost:3000](http://localhost:3000).
