@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:3.6
+    ports:
+      - 27017:27017
+    # Optionally mount external data directory
+    volumes:
+      - ~/data3.2:/data/db
+
