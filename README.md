@@ -24,15 +24,20 @@ El primero debe tener el nombre *prueba*, "Root URL" la del frontend, que sería
 
 Al cliente del backend ponerle como nombre *prueba-backend*, "Root URL" la del backend, que sería http://localhost:9999 en nuestro caso, y "Access Type" en *bearer-only*.
 
-Además debemos crear un rol para lxs usuarixs que deseemos que puedan crear propuestas nuevas. Para esto ir al menú principal Roles > Add Role, y crear uno con "Role Name" *accountable*. Cuando deseemos darle esta potestad a unx usuarix registradx debemos ir al menú principal Users > Edit (sobre lx usuarix), después a Role Mappings > Available Roles, seleccionar *accountable* y presionar "Add selected"
+Además, debemos crear un rol para lxs usuarixs que deseemos que puedan crear propuestas nuevas. Para esto ir al menú principal Roles > Add Role, y crear uno con "Role Name" *accountable*. Cuando deseemos darle esta potestad a unx usuarix registradx debemos ir al menú principal Users > Edit (sobre lx usuarix), después a Role Mappings > Available Roles, seleccionar *accountable* y presionar "Add selected".
+
+Finalmente, debemos agregar unos protocol mappers en el cliente de Keycloak del frontend. Para eso vamos a la pestaña "Mappers", dentro del cliente, y creamos los mappers listados en [KEYCLOAK-MAPPERS.md](KEYCLOAK-MAPPERS.md).
 
 ### Errores comunes
 #### Login del frontend
 ##### Init 403
-Si al cargar el frontend, un request GET con url `.../protocol/openid-connect/login-status-iframe.html/init?client_id=...&origin=...` devuelve 403 Forbidden, tienen mal configurado "Web Origins" del Client de Keycloak del frontend. Deben ingresar la url del frontend en ese campo. **NOTA** esta url NO debe tener "/" al final, sino no anda.
+Si al cargar el frontend, un request GET con url `.../protocol/openid-connect/login-status-iframe.html/init?client_id=...&origin=...` devuelve 403 Forbidden, tienen mal configurado "Web Origins" del cliente de Keycloak del frontend. Deben ingresar la url del frontend en ese campo. **NOTA** esta url NO debe tener "/" al final, sino no anda.
 
 ##### Token 400
-Si al intentar iniciar sesión en el frontend, un request POST con url `.../protocol/openid-connect/token` hacia el servidor Keycloak devuelve 400, tienen mal configurado el "Access Type" en confidential, en el Client de Keycloak del frontend. Cambiar a public.
+Si al intentar iniciar sesión en el frontend, un request POST con url `.../protocol/openid-connect/token` hacia el servidor Keycloak devuelve 400, tienen mal configurado el "Access Type" en confidential, en el cliente de Keycloak del frontend. Cambiar a public.
 
 ##### Muchos 403 desde la api del backend
-Si hay muchos requests GET a `/api/v1/...` del servidor del backend que devuelven 403 Forbidden puede que hayan configurado mal la url `AUTH_SERVER_URL` en el archivo `.env` del backend. Asegurarse que la url sea la del servidor de Keycloak más `/auth` al final. También puede que estén usando el mismo Client de Keycloak que el frontend, recuerden que deben usar uno distinto. A veces la url `/api/v1/documents/my-documents` devuelve 403 pero eso puede ser porque lx usuarix no tiene permisos para crear propuestas, no es un error.
+Si hay muchos requests GET a `/api/v1/...` del servidor del backend que devuelven 403 Forbidden puede que hayan configurado mal la url `AUTH_SERVER_URL` en el archivo `.env` del backend. Asegurarse que la url sea la del servidor de Keycloak más `/auth` al final. También puede que estén usando el mismo cliente de Keycloak que el frontend, recuerden que deben usar uno distinto. A veces la url `/api/v1/documents/my-documents` devuelve 403 pero eso puede ser porque lx usuarix no tiene permisos para crear propuestas, no es un error.
+
+##### No muestra el avatar de lx usuarix después de loginear
+Esto puede ser debido a una mala configuración en los "Mappers" del cliente de Keycloak del frontend. Verificar que estén todos los ítems iguales que en [KEYCLOAK-MAPPERS.md](KEYCLOAK-MAPPERS.md).
