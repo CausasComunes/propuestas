@@ -9,6 +9,8 @@ Para levantar una instancia de prueba de Keycloak pueden hacer:
 
 `docker run --name keycloak -p 8080:8080 -e "KEYCLOAK_USER=admin" -e "KEYCLOAK_PASSWORD=admin" jboss/keycloak:4.4.0.Final`
 
+(puede tardar mucho en cargar, si se queda en el mensaje `Added 'admin' to '/opt/jboss/...add-user.json', restart server to load user`, esperar unos minutos)
+
 Y navegar a [http://localhost:8080](http://localhost:8080), e ingresar a la consola de administración usando las credenciales `admin`/`admin`. Una vez adentro deben crear un *client* de prueba, con el nombre "prueba".
 
 #### Frontend
