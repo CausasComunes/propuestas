@@ -29,10 +29,10 @@ Además debemos crear un rol para lxs usuarixs que deseemos que puedan crear pro
 ### Errores comunes
 #### Login del frontend
 ##### Init 403
-Si al cargar el frontend, un request GET con url `.../protocol/openid-connect/login-status-iframe.html/init?client_id=...&origin=...` devuelve 403 Forbidden, tienen mal configurado "Web Origins" del Client de Keycloak. Deben ingresar la url del frontend en ese campo. **NOTA** esta url NO debe tener "/" al final, sino no anda.
+Si al cargar el frontend, un request GET con url `.../protocol/openid-connect/login-status-iframe.html/init?client_id=...&origin=...` devuelve 403 Forbidden, tienen mal configurado "Web Origins" del Client de Keycloak del frontend. Deben ingresar la url del frontend en ese campo. **NOTA** esta url NO debe tener "/" al final, sino no anda.
 
 ##### Token 400
-Si al intentar iniciar sesión en el frontend, un request POST con url `.../protocol/openid-connect/token` hacia el servidor Keycloak devuelve 400, tienen mal configurado el "Access Type" en confidential, en el Client de Keycloak. Cambiar a public.
+Si al intentar iniciar sesión en el frontend, un request POST con url `.../protocol/openid-connect/token` hacia el servidor Keycloak devuelve 400, tienen mal configurado el "Access Type" en confidential, en el Client de Keycloak del frontend. Cambiar a public.
 
 ##### Muchos 403 desde la api del backend
 Si hay muchos requests GET a `/api/v1/...` del servidor del backend que devuelven 403 Forbidden puede que hayan configurado mal la url `AUTH_SERVER_URL` en el archivo `.env` del backend. Asegurarse que la url sea la del servidor de Keycloak más `/auth` al final. También puede que estén usando el mismo Client de Keycloak que el frontend, recuerden que deben usar uno distinto. A veces la url `/api/v1/documents/my-documents` devuelve 403 pero eso puede ser porque lx usuarix no tiene permisos para crear propuestas, no es un error.
