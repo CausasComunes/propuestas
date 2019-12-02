@@ -4,12 +4,12 @@ This project has a couple of services. It has the typical frontend and backend, 
 #### Backend
 The backend is an API built with [Express](https://expressjs.com/) **4.17.1**. It also has a MongoDB **3.6.14** database. To run the API, first run the DB doing `docker-compose up`. Afterwards install all the necessary modules, `npm install`, and run the API doing `npm run dev`. Navigate to [http://localhost:9999/](http://localhost:9999/) and check that there are no errors (it should show a json message with… an error, that’s OK)
 
-In the file `.env` in the root directory of the backend are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
+In the `.env` file in the root directory of the backend are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
 
 #### Frontend
 The frontend is a website built with [React](https://reactjs.org/) **16.8.6**, with the [Next](https://nextjs.org/) **6.1.2** framework. To run it, install all dependencies, `npm install`, and then start the website doing `npm run dev`. If everything went well it should host in [http://localhost:3000](http://localhost:3000).
 
-In the `.env` file in the root directory of the backend there are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
+In the `.env` file in the root directory of the backend are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
 
 #### Keycloack
 To make a simple test with Keycloak you can do:
