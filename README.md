@@ -10,7 +10,7 @@ Para correr la api, primero levantar la BBDD haciendo `docker-compose up`.
 
 Posteriormente instalar los módulos de node necesarios, `npm install`, y levantar la api haciendo `npm run dev`.
 
-Navegar a [http://localhost:9999/](http://localhost:9999/) para verificar que ande (devolverá un json con mensaje de error).
+Navegar a [http://localhost:9999/](http://localhost:9999/) para verificar que ande (devolverá un json con mensaje de error "Content not found" y status 404, eso significa está andando bien).
 
 En el archivo `.env` de la carpeta raíz del backend están las configuraciones de conexión hacia los otros servicios (mongodb, Keycloak y notifier).
 
