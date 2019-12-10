@@ -10,7 +10,7 @@ To run the API, first run the DB doing `docker-compose up`.
 
 Afterwards install all the necessary modules, `npm install`, and run the API doing `npm run dev`.
 
-Navigate to [http://localhost:9999/](http://localhost:9999/) and check that there are no errors (it should show a json message with… an error, that’s OK)
+Navigate to [http://localhost:9999/](http://localhost:9999/) and check that there are no errors (it should return a json message with the error message "Content not found", status 404, that’s OK)
 
 In the `.env` file in the root directory of the backend are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
 
