@@ -26,11 +26,13 @@ To make a simple test with Keycloak you can do:
 
 (this can take a long time to load itself, if its stuck in the message `Added 'admin' to '/opt/jboss/...add-user.json', restart server to load user` just wait a couple of minutes)
 
-Navigate to [http://localhost:8080](http://localhost:8080) to login into the administration console, using `admin`/`admin` as credentials. Now, you have to create 2 clients (go to Clients > Create), one is for the frontend and the other for the backend:
+Navigate to [http://localhost:8080](http://localhost:8080) to login into the administration console, using `admin`/`admin` as credentials.
 
-The first one should be named *prueba*, “Root URL” is the one of the frontend, that in our case is  http://localhost:3000, and Access Type" to *public* (inside "Settings" of our client).
+First, you should create a new *realm* by pressing on *Add realm* inside the main dropdown menu. After, go to the "Login" tab and enable user registrating by turning on the toggle "User registration".
 
-The backend client should be names *prueba-backend*, "Root URL" is the one of the backend, that in our case is  http://localhost:9999, and Access Type" to *bearer-only*.
+Now, you have to create 2 clients (go to Clients > Create), one is for the frontend and the other for the backend:
+- The first one should be named *my-frontend-kc-client*, “Root URL” is the one of the frontend, that in our case is  http://localhost:3000 (without "/" at the end!), and Access Type" to *public* (inside "Settings" of our client).
+- The backend client should be names *my-backend-kc-client*, "Root URL" is the one of the backend, that in our case is  http://localhost:9999, and Access Type" to *bearer-only*.
 
 Also, you should create a role for the users you wish to give permission to upload content. For this go to the main menu Roles > Add Role, and create one with "Role Name" *accountable*. When you wish to give a user this upload permission, go to the main menu Users > Edit (the user you want), then go to Role Mappings > Available Roles, select *accountable* and press "Add selected".
 
