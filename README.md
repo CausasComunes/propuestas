@@ -26,11 +26,13 @@ Para levantar una instancia de prueba de Keycloak pueden hacer:
 
 (puede tardar mucho en cargar, si se queda en el mensaje `Added 'admin' to '/opt/jboss/...add-user.json', restart server to load user`, esperar unos minutos)
 
-Navegar a [http://localhost:8080](http://localhost:8080) para ingresar a la consola de administración, usando las credenciales `admin`/`admin`. Ahora hay que crear 2 clientes (ir a Clients > Create), uno para el frontend otro para el backend:
+Navegar a [http://localhost:8080](http://localhost:8080) para ingresar a la consola de administración, usando las credenciales `admin`/`admin`.
 
-El primero debe tener el nombre *prueba*, "Root URL" la del frontend, que sería http://localhost:3000 en nuestro caso, y "Access Type" en *public* (dentro de "Settings" del cliente).
+Primero crear un nuevo *realm* presionando en *Add realm* dentro del menú desplegable principal. Posteriormente ir a la solapa "Login" y habilitar el registro de usuarixs poniendo "User registration" en ON.
 
-Al cliente del backend ponerle como nombre *prueba-backend*, "Root URL" la del backend, que sería http://localhost:9999 en nuestro caso, y "Access Type" en *bearer-only*.
+Ahora hay que crear 2 clientes (ir a Clients > Create), uno para el frontend otro para el backend:
+- El primero debe tener el nombre *my-frontend-kc-client*, "Root URL" la del frontend, que sería http://localhost:3000 en nuestro caso (sin "/" al final!), y "Access Type" en *public* (dentro de "Settings" del cliente).
+- Al cliente del backend ponerle como nombre *my-backend-kc-client*, "Root URL" la del backend, que sería http://localhost:9999 en nuestro caso, y "Access Type" en *bearer-only*.
 
 Además, debemos crear un rol para lxs usuarixs que deseemos que puedan crear propuestas nuevas. Para esto ir al menú principal Roles > Add Role, y crear uno con "Role Name" *accountable*. Cuando deseemos darle esta potestad a unx usuarix registradx debemos ir al menú principal Users > Edit (sobre lx usuarix), después a Role Mappings > Available Roles, seleccionar *accountable* y presionar "Add selected".
 
