@@ -1,10 +1,10 @@
 ### Platform services
 This project has a couple of services. It has the typical frontend and backend, but also a credential management system,  [Keycloak](https://www.keycloak.org/) **4.4.0**, and a notification management service. All the system was successfully tested with Node **10.16.3** and Npm **6.9.0**.
 
+For both the backend as the frontend you should create a file named `.env` with the environment variables used for connecting with the other services (mongodb, Keycloak and notifier). There is a file `.env.example` as template in the root directory of both the backend and the frontend. You could copy this file as the new `.env` file for testing.
+
 #### Backend
 The backend is an API built with [Express](https://expressjs.com/) **4.17.1**. It also has a MongoDB **3.6.14** database.
-
-Yo should create a file named `.env` with the required environment variables. There is a file `.env.example` as template. You could copy this file as the new `.env` file for testing.
 
 To run the API, first run the DB doing `docker-compose up`.
 
@@ -12,12 +12,12 @@ Afterwards install all the necessary modules, `npm install`, and run the API doi
 
 Navigate to [http://localhost:9999/](http://localhost:9999/) and check that there are no errors (it should return a json message with the error message "Content not found", status 404, that’s OK)
 
-In the `.env` file in the root directory of the backend are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
-
 #### Frontend
-The frontend is a website built with [React](https://reactjs.org/) **16.8.6**, with the [Next](https://nextjs.org/) **6.1.2** framework. To run it, install all dependencies, `npm install`, and then start the website doing `npm run dev`. If everything went well it should host in [http://localhost:3000](http://localhost:3000).
+The frontend is a website built with [React](https://reactjs.org/) **16.8.6**, with the [Next](https://nextjs.org/) **6.1.2** framework.
 
-In the `.env` file in the root directory of the backend are the connection configurations, used to connect with the other services (mongodb, Keycloak and notifier).
+To run it, install all dependencies, `npm install`, and then start the website doing `npm run dev`.
+
+If everything went well it should host in [http://localhost:3000](http://localhost:3000).
 
 #### Keycloack
 To make a simple test with Keycloak you can do:
