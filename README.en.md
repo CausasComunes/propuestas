@@ -1,4 +1,4 @@
-### Platform services
+## Platform services
 This project has a couple of services. It has the typical frontend and backend, but also a credential management system,  [Keycloak](https://www.keycloak.org/) **4.4.0**, and a notification management service. All the system was successfully tested with Node **10.16.3** and Npm **6.9.0**.
 
 For both the backend as the frontend you should create a file named `.env` with the environment variables used for connecting with the other services (mongodb, Keycloak and notifier). There is a file `.env.example` as template in the root directory of both the backend and the frontend. You could copy this file as the new `.env` file for testing.
@@ -38,7 +38,10 @@ Also, you should create a role for the users you wish to give permission to uplo
 
 Finally, you should add some protocol mappers to the frontend client. For this, go to the “Mappers” tab inside our client, and create the mappers listed in [KEYCLOAK-MAPPERS.md](KEYCLOAK-MAPPERS.md).
 
-### Common errors
+## Adding a proposal
+To be able to add a proposal first you should own an account which has the *accountable* role assigned to it. This can be done as described in the previous section. Once you have this, navigate to your user profile's page, scroll down, and press the button "+ Nueva propuesta". Fill out the fields as you wish, and publish the proposal by switching on the "Publicado" toggle. This way, the proposal will appear on the home page.
+
+## Common errors
 #### Frontend login
 ##### Init 403
 If upon loading the frontend, a GET request with URL `.../protocol/openid-connect/login-status-iframe.html/init?client_id=...&origin=...` gets 403 Forbidden, you've misconfigured "Web Origins" in the Keycloack frontend client. You should input the frontend URL in that field.
