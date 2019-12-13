@@ -3,7 +3,7 @@ Este proyecto cuenta con varios servicios. Además de tener el típico frontend 
 
 Tanto para el backend como para el frontend deberá crear el archivo `.env` con las variables de entorno de conexión con el resto de los servicios (mongodb, Keycloak y notifier). Hay un archivo `.env.example` a modo de ejemplo en la carpeta de raíz del front y del back. Puede crear el archivo `.env` copiando este.
 
-#### Backend
+### Backend
 El backend es una api hecha con [Express](https://expressjs.com/) **4.17.1**. También cuenta con una base de datos MongoDB **3.6.14**.
 
 Para correr la api, primero levantar la BBDD haciendo `docker-compose up`.
@@ -12,14 +12,14 @@ Posteriormente instalar los módulos de node necesarios, `npm install`, y levant
 
 Navegar a [http://localhost:9999/](http://localhost:9999/) para verificar que ande (devolverá un json con mensaje de error "Content not found" y status 404, eso significa está andando bien).
 
-#### Frontend
+### Frontend
 El frontend es una página hecha con [React](https://reactjs.org/) **16.8.6**, con el framework [Next](https://nextjs.org/) **6.1.2**.
 
 Para correrla, primero instalar las dependencias, `npm install`, y después levantar la página haciendo `npm run dev`.
 
 Si todo sale bien, debería hostearse en [http://localhost:3000](http://localhost:3000).
 
-#### Keycloack
+### Keycloack
 Para levantar una instancia de prueba de Keycloak pueden hacer:
 
 `docker run --name keycloak -p 8080:8080 -e "KEYCLOAK_USER=admin" -e "KEYCLOAK_PASSWORD=admin" jboss/keycloak:4.4.0.Final`
