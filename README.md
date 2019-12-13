@@ -1,4 +1,4 @@
-### Servicios del sistema
+## Servicios del sistema
 Este proyecto cuenta con varios servicios. Además de tener el típico frontend y backend, tiene un servicio de manejo de credenciales, [Keycloak](https://www.keycloak.org/) **4.4.0**, y un servicio de manejo de notificaciones, de desarrollo propio. Todo el sistema fue usado exitósamente con Node **10.16.3** y Npm **6.9.0**.
 
 Tanto para el backend como para el frontend deberá crear el archivo `.env` con las variables de entorno de conexión con el resto de los servicios (mongodb, Keycloak y notifier). Hay un archivo `.env.example` a modo de ejemplo en la carpeta de raíz del front y del back. Puede crear el archivo `.env` copiando este.
@@ -38,7 +38,10 @@ Además, debemos crear un rol para lxs usuarixs que deseemos que puedan crear pr
 
 Finalmente, debemos agregar unos protocol mappers en el cliente de Keycloak del frontend. Para eso vamos a la pestaña "Mappers", dentro del cliente, y creamos los mappers listados en [KEYCLOAK-MAPPERS.md](KEYCLOAK-MAPPERS.md).
 
-### Errores comunes
+## Agregar una propuesta
+Para agregar una propuesta debe tener unx usuarix al que se le haya asignado el rol *accountable*, como explica la sección anterior. Si ya lx tiene, debe navegar a la página del perfil de su usuarix y hacer click en "+ Nueva propuesta". Una vez completados los compos necesarios puede publicar la propuesta para que todxs la puedan ver en la home activando el botón de "Publicado".
+
+## Errores comunes
 #### Login del frontend
 ##### Init 403
 Si al cargar el frontend, un request GET con url `.../protocol/openid-connect/login-status-iframe.html/init?client_id=...&origin=...` devuelve 403 Forbidden, tienen mal configurado "Web Origins" del cliente de Keycloak del frontend. Deben ingresar la url del frontend en ese campo. **NOTA** esta url NO debe tener "/" al final, sino no anda.
