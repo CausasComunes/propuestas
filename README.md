@@ -28,7 +28,7 @@ Para levantar una instancia de prueba de Keycloak pueden hacer:
 
 Navegar a [http://localhost:8080](http://localhost:8080) para ingresar a la consola de administración, usando las credenciales `admin`/`admin`.
 
-Primero crear un nuevo *realm* presionando en *Add realm* dentro del menú desplegable principal. Posteriormente ir a la solapa "Login" y habilitar el registro de usuarixs poniendo "User registration" en ON.
+Primero crear un nuevo *realm* presionando en *Add realm* dentro del menú desplegable de arriba a la izquierda (donde dice *Master*). Posteriormente ir a la solapa "Login" y habilitar el registro de usuarixs poniendo "User registration" en ON.
 
 Ahora hay que crear 2 clientes (ir a Clients > Create), uno para el frontend otro para el backend:
 - El primero debe tener el nombre *my-frontend-kc-client*, "Root URL" la del frontend, que sería http://localhost:3000 en nuestro caso (sin "/" al final!), y "Access Type" en *public* (dentro de "Settings" del cliente).
